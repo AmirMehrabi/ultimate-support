@@ -26,9 +26,9 @@ class IpSupport
     /**
      * Get client public IP address if it is localhost
      *
-     * @return null | string
+     * @return string|null
      */
-    public static function getPublicIp(): null | string
+    public static function getPublicIp()
     {
         $isCacheable = Config::get('ultimate-support.ip.use_cache_for_local_public_ip', true);
         $cacheKey = 'ultimate-support:ip:local_public_ip';
@@ -67,9 +67,9 @@ class IpSupport
      *
      * @param bool $getLocalPublicIp
      *
-     * @return string
+     * @return array|null
      */
-    public static function getIpAddress(bool $getLocalPublicIp = false): null | array
+    public static function getIpAddress(bool $getLocalPublicIp = false)
     {
         $baseIpAddress = request()->ip();
 
